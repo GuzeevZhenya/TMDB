@@ -16,9 +16,17 @@ dist-ssr
 .vscode/*
 !.vscode/extensions.json
 .idea
+.cursor
 .DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+.cursorignore
+
+# env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
