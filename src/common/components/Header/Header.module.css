@@ -1,0 +1,113 @@
+.header {
+  background-color: var(--header-bg, #032541);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+.inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.logoLink:hover {
+  opacity: 0.8;
+}
+
+.logo {
+  height: 30px;
+  width: auto;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.link {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  font-size: 1rem;
+}
+
+.link:hover {
+ color: rgb(91, 91, 218);
+}
+
+.linkActive {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.3);
+  font-weight: 300;
+}
+
+.themeButton {
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1.25rem;
+   background-color: rgba(255, 255, 255, 0.1);
+  width: 40px;
+    height: 40px;
+    min-width: 40px;
+    padding: 0;
+    border-radius: 999px;
+    border-color: var(--color-control-border);
+    background-color: var(--color-control-background);
+    color: var(--color-control-text);
+    font-size: 20px;
+    transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+}
+
+.themeButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+  
+  .nav {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .separator {
+    display: none;
+  }
+  
+  .link {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.5rem;
+  }
+}

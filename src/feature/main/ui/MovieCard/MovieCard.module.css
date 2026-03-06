@@ -1,0 +1,224 @@
+.cardWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  background-color: var(--card-bg);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--card-shadow);
+  width: 100%;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.posterContainer {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .poster {
+  transform: scale(1.05);
+}
+
+.rating {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #ffd700;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.favoriteButton {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 2;
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.card:hover .favoriteButton {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.favoriteButton:hover {
+  background-color: #dc3545;
+  transform: scale(1.1);
+}
+
+.favoriteActive {
+  background-color: #dc3545;
+  color: white;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.favoriteActive:hover {
+  background-color: #b02a37;
+  transform: scale(1.05);
+}
+
+/* Обновленные стили для заголовка */
+.titleContainer {
+  display: flex;
+  align-items: center; /* Вертикальное центрирование */
+  justify-content: center; /* Горизонтальное центрирование */
+  min-height: 3.2rem; /* Минимальная высота для 2 строк */
+  padding: 0.5rem 0.75rem;
+  flex: 1; /* Занимает оставшееся место */
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  line-height: 1.3;
+  
+  /* Обрезаем длинный текст с многоточием */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  
+  /* Перенос слов */
+  word-break: break-word;
+  hyphens: auto;
+  
+  /* Занимает всю ширину контейнера */
+  width: 100%;
+}
+
+/* Темная тема */
+[data-theme='dark'] .rating {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
+}
+
+[data-theme='dark'] .favoriteButton {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #000;
+}
+
+[data-theme='dark'] .favoriteButton:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+[data-theme='dark'] .favoriteActive {
+  background-color: #dc3545;
+  color: white;
+}
+
+[data-theme='dark'] .favoriteActive:hover {
+  background-color: #b02a37;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .cardWrapper {
+    max-width: 180px;
+  }
+  
+  .titleContainer {
+    min-height: 3rem;
+    padding: 0.4rem 0.5rem;
+  }
+  
+  .title {
+    font-size: 0.95rem;
+  }
+  
+  .favoriteButton {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardWrapper {
+    max-width: 160px;
+  }
+  
+  .titleContainer {
+    min-height: 2.8rem;
+    padding: 0.3rem 0.4rem;
+  }
+  
+  .title {
+    font-size: 0.9rem;
+    -webkit-line-clamp: 2;
+  }
+  
+  .favoriteButton {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 360px) {
+  .cardWrapper {
+    max-width: 140px;
+  }
+  
+  .titleContainer {
+    min-height: 2.5rem;
+  }
+  
+  .title {
+    font-size: 0.85rem;
+  }
+}

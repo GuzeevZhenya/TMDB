@@ -1,0 +1,87 @@
+:root {
+  /* Базовые переменные (светлая тема по умолчанию) */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --text-primary: #032541;
+  --text-secondary: #666666;
+  --text-inverse: #ffffff;
+  --header-bg: #032541;
+  --card-bg: #ffffff;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --border-color: #e0e0e0;
+  --link-color: #032541;
+  --link-hover: #01b4e4;
+  --button-bg: #032541;
+  --button-text: #ffffff;
+  --button-hover: #01b4e4;
+  --input-bg: #ffffff;
+  --input-border: #cccccc;
+  --error-color: #d32f2f;
+  --success-color: #2e7d32;
+}
+
+/* Темная тема - применяется когда data-theme="dark" */
+[data-theme='dark'] {
+  --bg-primary: #121212;
+  --bg-secondary: #1e1e1e;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --text-inverse: #000000;
+  --header-bg: #000000;
+  --card-bg: #2d2d2d;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  --border-color: #404040;
+  --link-color: #90cea1;
+  --link-hover: #00b3e5;
+  --button-bg: #01b4e4;
+  --button-text: #000000;
+  --button-hover: #90cea1;
+  --input-bg: #333333;
+  --input-border: #555555;
+  --error-color: #f44336;
+  --success-color: #4caf50;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Утилитарные классы для текста */
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+/* Стили для ссылок */
+a {
+  color: var(--link-color);
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--link-hover);
+}

@@ -1,0 +1,64 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.title {
+  font-size: 2.5rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.searchWrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.hint {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .searchWrapper {
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1rem;
+  }
+  
+  .title {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .hint {
+    font-size: 0.9rem;
+  }
+}

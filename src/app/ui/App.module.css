@@ -1,0 +1,22 @@
+.app {
+  min-height: 100vh; /* Минимальная высота = весь экран */
+  display: flex;
+  flex-direction: column; /* Элементы друг под другом */
+  background-color: var(--bg-primary);
+}
+
+.main {
+  flex: 1 0 auto; /* Растягивается на все доступное место */
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .main {
+    padding: 1rem;
+  }
+}

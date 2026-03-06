@@ -1,0 +1,48 @@
+.footer {
+  padding: 16px 24px;
+  background-color: var(--color-gray-50);
+  border-top: 1px solid var(--color-gray-200);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: auto;
+  box-sizing: border-box;
+}
+
+.content {
+  max-width: 1400px;
+  width: 100%;
+  display: flex;
+  justify-content: center; /* Центрируем содержимое */
+  align-items: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  text-align: center; /* На всякий случай */
+}
+
+.content p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Темная тема */
+[data-theme='dark'] .footer {
+  background-color: #1a1a1a;
+  border-top-color: #333;
+}
+
+[data-theme='dark'] .content {
+  color: #999;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .footer {
+    padding: 12px 16px;
+  }
+  
+  .content {
+    font-size: 0.85rem;
+  }
+}

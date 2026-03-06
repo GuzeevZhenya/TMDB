@@ -1,0 +1,336 @@
+.container {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+.ticket {
+  display: flex;
+  max-width: 800px;
+  width: 100%;
+  background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  animation: slideIn 0.8s ease-out;
+}
+
+.ticketHole {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #1a1a1a;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.ticketHole:first-of-type {
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ticketHole:last-of-type {
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.ticketContent {
+  flex: 2;
+  padding: 2rem;
+  background: white;
+  border-radius: 16px 0 0 16px;
+}
+
+.movieTitle {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #032541;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 0 #ffd700;
+  animation: glitch 3s infinite;
+  line-height: 1;
+}
+
+.movieInfo {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px dashed #032541;
+  font-size: 1rem;
+  color: #032541;
+}
+
+.movieMeta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.movieDesc {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: #f5f5f5;
+  border-radius: 8px;
+  font-style: italic;
+  color: #333;
+  font-size: 0.95rem;
+  border-left: 4px solid #ffd700;
+}
+
+.recommendations {
+  margin-bottom: 1.5rem;
+}
+
+.recommendationsTitle {
+  font-size: 1rem;
+  color: #032541;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.recommendationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.recommendationItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  background: #f0f0f0;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+}
+
+.recommendationItem:hover {
+  background: #ffd700;
+  transform: translateX(4px);
+  border-color: #032541;
+}
+
+.recommendationTitle {
+  font-size: 0.9rem;
+  color: #032541;
+  font-weight: 500;
+}
+
+.recommendationRating {
+  font-size: 0.85rem;
+  color: #ffd700;
+  font-weight: 600;
+  background: #032541;
+  padding: 0.2rem 0.5rem;
+  border-radius: 12px;
+}
+
+.recommendationItem:hover .recommendationRating {
+  background: white;
+  color: #032541;
+}
+
+.ticketFooter {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8rem;
+  color: #999;
+  border-top: 1px solid #eee;
+  padding-top: 0.5rem;
+}
+
+.ticketStub {
+  flex: 1;
+  padding: 2rem;
+  background: linear-gradient(135deg, #032541 0%, #01b4e4 100%);
+  border-radius: 0 16px 16px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+}
+
+.stubText {
+  font-size: 3rem;
+  font-weight: 800;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  letter-spacing: -10px;
+  opacity: 0.5;
+}
+
+.stubActions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.stubButton {
+  color: white;
+  text-decoration: none;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid white;
+  border-radius: 50px;
+  transition: all 0.3s;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.stubButton:hover {
+  background: white;
+  color: #032541;
+  transform: translateX(-4px);
+}
+
+/* Анимации */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(0);
+  }
+}
+
+@keyframes glitch {
+  0%, 100% {
+    transform: skew(0deg);
+  }
+  95% {
+    transform: skew(5deg);
+  }
+  96% {
+    transform: skew(-5deg);
+  }
+  97% {
+    transform: skew(3deg);
+  }
+  98% {
+    transform: skew(-3deg);
+  }
+}
+
+/* Темная тема для билета */
+[data-theme='dark'] .ticketContent {
+  background: #2d2d2d;
+}
+
+[data-theme='dark'] .movieTitle {
+  color: #ffd700;
+  text-shadow: 2px 2px 0 #032541;
+}
+
+[data-theme='dark'] .movieInfo {
+  color: #ffd700;
+  border-bottom-color: #ffd700;
+}
+
+[data-theme='dark'] .movieMeta {
+  color: #aaa;
+}
+
+[data-theme='dark'] .movieDesc {
+  background: #1a1a1a;
+  color: #ddd;
+}
+
+[data-theme='dark'] .recommendationsTitle {
+  color: #ffd700;
+}
+
+[data-theme='dark'] .recommendationItem {
+  background: #1a1a1a;
+}
+
+[data-theme='dark'] .recommendationTitle {
+  color: #ffd700;
+}
+
+[data-theme='dark'] .recommendationItem:hover {
+  background: #ffd700;
+}
+
+[data-theme='dark'] .recommendationItem:hover .recommendationTitle {
+  color: #032541;
+}
+
+[data-theme='dark'] .ticketFooter {
+  color: #666;
+  border-top-color: #444;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .ticket {
+    flex-direction: column;
+  }
+  
+  .ticketContent {
+    border-radius: 16px 16px 0 0;
+  }
+  
+  .ticketStub {
+    border-radius: 0 0 16px 16px;
+    flex-direction: row;
+  }
+  
+  .stubText {
+    writing-mode: horizontal-tb;
+    letter-spacing: normal;
+  }
+  
+  .stubActions {
+    flex-direction: row;
+    width: auto;
+  }
+  
+  .movieTitle {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .ticketContent {
+    padding: 1.5rem;
+  }
+  
+  .movieTitle {
+    font-size: 2.5rem;
+  }
+  
+  .movieInfo, .movieMeta {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .stubActions {
+    flex-direction: column;
+  }
+  
+  .recommendationsList {
+    gap: 0.4rem;
+  }
+  
+  .recommendationItem {
+    padding: 0.4rem 0.6rem;
+  }
+  
+  .recommendationTitle {
+    font-size: 0.85rem;
+  }
+}
