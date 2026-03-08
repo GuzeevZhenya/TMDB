@@ -26,7 +26,6 @@ export const Category = () => {
         ))}
       </div>
 
-      {/* Здесь будут отображаться фильмы выбранной категории */}
       <div className={styles.content}>
         <Outlet />
       </div>

@@ -35,8 +35,11 @@
   position: relative;
   width: 100%;
   aspect-ratio: 2/3;
-  overflow: hidden;
-  background-color: #f0f0f0;
+  /* overflow: hidden; */
+  background-color: #2d2d2d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .poster {
@@ -44,6 +47,18 @@
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
+  opacity: 0;
+}
+
+.poster.loaded {
+  opacity: 1;
+}
+
+/* Стили для placeholder изображения */
+.poster[src*="placeholder"] {
+  object-fit: contain;
+  padding: 20px;
+  background-color: #2d2d2d;
 }
 
 .card:hover .poster {
@@ -61,6 +76,8 @@
   font-size: 0.9rem;
   font-weight: 600;
   z-index: 1;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .favoriteButton {
@@ -82,6 +99,8 @@
   z-index: 2;
   opacity: 0;
   transform: scale(0.8);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .card:hover .favoriteButton {
@@ -106,14 +125,14 @@
   transform: scale(1.05);
 }
 
-/* Обновленные стили для заголовка */
 .titleContainer {
   display: flex;
-  align-items: center; /* Вертикальное центрирование */
-  justify-content: center; /* Горизонтальное центрирование */
-  min-height: 3.2rem; /* Минимальная высота для 2 строк */
+  align-items: center;
+  justify-content: center;
+  min-height: 3.2rem;
   padding: 0.5rem 0.75rem;
-  flex: 1; /* Занимает оставшееся место */
+  flex: 1;
+  background-color: inherit;
 }
 
 .title {
@@ -122,32 +141,38 @@
   font-weight: 600;
   color: var(--text-primary);
   text-align: center;
-  line-height: 1.3;
-  
-  /* Обрезаем длинный текст с многоточием */
+  line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
-  
-  /* Перенос слов */
   word-break: break-word;
   hyphens: auto;
-  
-  /* Занимает всю ширину контейнера */
   width: 100%;
+  max-width: 100%;
 }
 
 /* Темная тема */
+[data-theme='dark'] .card {
+  background-color: #2d2d2d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .title {
+  color: #ffffff;
+}
+
 [data-theme='dark'] .rating {
   background-color: rgba(255, 255, 255, 0.9);
-  color: #000;
+  color: #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme='dark'] .favoriteButton {
   background-color: rgba(255, 255, 255, 0.9);
-  color: #000;
+  color: #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 [data-theme='dark'] .favoriteButton:hover {
@@ -164,6 +189,24 @@
   background-color: #b02a37;
 }
 
+/* CSS переменные */
+:root {
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --text-primary: #333333;
+}
+
+[data-theme='dark'] {
+  --card-bg: #2d2d2d;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  --text-primary: #ffffff;
+}
+
+/* Убираем скелетон, так как картинки теперь всегда отображаются */
+.posterContainer::before {
+  display: none;
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
   .cardWrapper {
@@ -177,12 +220,18 @@
   
   .title {
     font-size: 0.95rem;
+    line-height: 1.3;
   }
   
   .favoriteButton {
     width: 32px;
     height: 32px;
     font-size: 1rem;
+  }
+  
+  .rating {
+    font-size: 0.85rem;
+    padding: 0.2rem 0.4rem;
   }
 }
 
@@ -198,7 +247,7 @@
   
   .title {
     font-size: 0.9rem;
-    -webkit-line-clamp: 2;
+    line-height: 1.3;
   }
   
   .favoriteButton {
@@ -206,9 +255,13 @@
     height: 28px;
     font-size: 0.9rem;
   }
+  
+  .rating {
+    font-size: 0.8rem;
+    padding: 0.15rem 0.35rem;
+  }
 }
 
-/* Для очень маленьких экранов */
 @media (max-width: 360px) {
   .cardWrapper {
     max-width: 140px;
@@ -216,6 +269,7 @@
   
   .titleContainer {
     min-height: 2.5rem;
+    padding: 0.25rem 0.35rem;
   }
   
   .title {

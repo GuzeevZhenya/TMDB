@@ -14,6 +14,9 @@ export const MoviesCategory = () => {
   const { moviesCategoryFilter } = useParams();
   const config = categoryConfig[moviesCategoryFilter as keyof typeof categoryConfig];
 
+  console.log(moviesCategoryFilter);
+
+
   if (!config) {
     return <div className={styles.error}>Category not found</div>;
   }

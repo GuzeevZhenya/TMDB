@@ -11,6 +11,7 @@ interface MovieCardProps {
 
 export const MovieCard = ({ id, title, posterPath, voteAverage }: MovieCardProps) => {
   const [isFavorite, setIsFavorite] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const posterUrl = posterPath
     ? `https://image.tmdb.org/t/p/w500${posterPath}`
@@ -23,12 +24,22 @@ export const MovieCard = ({ id, title, posterPath, voteAverage }: MovieCardProps
     console.log(`${title} ${isFavorite ? 'удален из' : 'добавлен в'} избранное`);
   };
 
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
   return (
     <div className={styles.cardWrapper}>
       <Link to={`/movie/${id}`} className={styles.cardLink}>
         <div className={styles.card}>
           <div className={styles.posterContainer}>
-            <img src={posterUrl} alt={title} className={styles.poster} />
+            <img
+              src={posterUrl}
+              alt={title}
+              className={`${styles.poster} ${imageLoaded ? styles.loaded : ''}`}
+              onLoad={handleImageLoad}
+              loading="lazy"
+            />
             <div className={styles.rating}>
               ★ {voteAverage.toFixed(1)}
             </div>

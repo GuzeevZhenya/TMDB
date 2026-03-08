@@ -7,7 +7,7 @@ export const categoryPaths = {
 
 export const Path = {
   Main: '/',
-  CategoryMovies: '/movies',
+  CategoryMovies: '/movies/popular',
   FilteredMovies: '/filteredMovies',
   Search: '/search',
   Favorites: '/favorites',

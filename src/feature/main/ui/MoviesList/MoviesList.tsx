@@ -1,6 +1,11 @@
 import { MovieCard } from '../MovieCard/MovieCard';
 import { MovieRow } from '../MovieRow/MovieRow';
-import { mockMovies } from '../../../../common/mock/movies';
+import {
+  useGetNowPlayingMoviesQuery,
+  useGetPopularMoviesQuery,
+  useGetTopRatedMoviesQuery,
+  useGetUpcomingMoviesQuery
+} from '../../api/mainApi';
 
 interface MoviesListProps {
   category: 'popular' | 'topRated' | 'upcoming' | 'nowPlaying';
@@ -10,7 +15,50 @@ interface MoviesListProps {
 }
 
 export const MoviesList = ({ category, title, viewMoreLink, limit = 6 }: MoviesListProps) => {
-  const movies = mockMovies[category]?.slice(0, limit) || [];
+  const getQueryHook = () => {
+    switch (category) {
+      case 'popular':
+        return useGetPopularMoviesQuery;
+      case 'topRated':
+        return useGetTopRatedMoviesQuery;
+      case 'upcoming':
+        return useGetUpcomingMoviesQuery;
+      case 'nowPlaying':
+        return useGetNowPlayingMoviesQuery;
+      default:
+        return useGetPopularMoviesQuery;
+    }
+  };
+
+  // Используем хук с правильными параметрами
+  const useMoviesQuery = getQueryHook();
+  const { data, isLoading, error } = useMoviesQuery();
+
+  // Обработка состояния загрузки
+  if (isLoading) {
+    return (
+      <MovieRow title={title} viewMoreLink={viewMoreLink}>
+        <div>Loading...</div>
+      </MovieRow>
+    );
+  }
+
+  // Обработка ошибки
+  if (error) {
+    console.error('Error loading movies:', error);
+    return (
+      <MovieRow title={title} viewMoreLink={viewMoreLink}>
+        <div>Error loading movies</div>
+      </MovieRow>
+    );
+  }
+
+  const movies = data?.results?.slice(0, limit) || [];
+
+  // Если нет фильмов, не показываем ряд
+  if (movies.length === 0) {
+    return null;
+  }
 
   return (
     <MovieRow title={title} viewMoreLink={viewMoreLink}>
