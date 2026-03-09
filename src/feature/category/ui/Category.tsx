@@ -1,13 +1,13 @@
 import { NavLink, Outlet } from 'react-router-dom';
 import styles from './Category.module.css';
-import { categoryPaths } from '../../../common/constants/paths';
+import { categoryPaths } from '@/common/constants/paths';
 
 export const Category = () => {
   const categories = [
-    { id: 1, name: 'Popular Movies', path: categoryPaths.popular, filter: 'popular', },
-    { id: 2, name: 'Top Rated Movies', path: categoryPaths.topRated, filter: 'top-rated', },
-    { id: 3, name: 'Upcoming Movies', path: categoryPaths.upcoming, filter: 'upcoming', },
-    { id: 4, name: 'Now Playing Movies', path: categoryPaths.nowPlaying, filter: 'now-playing', },
+    { id: 1, name: 'Popular Movies', path: categoryPaths.popular, filter: 'popular' },
+    { id: 2, name: 'Top Rated Movies', path: categoryPaths.topRated, filter: 'top-rated' },
+    { id: 3, name: 'Upcoming Movies', path: categoryPaths.upcoming, filter: 'upcoming' },
+    { id: 4, name: 'Now Playing Movies', path: categoryPaths.nowPlaying, filter: 'now-playing' },
   ];
 
   return (

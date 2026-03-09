@@ -1,5 +1,5 @@
-import styles from './WelcomeSection.module.css';
 import { SearchMovies } from '../SearchMovies/SearchMovies';
+import styles from './WelcomeSection.module.css';
 
 export const WelcomeSection = () => {
   return (

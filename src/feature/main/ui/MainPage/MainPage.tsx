@@ -1,6 +1,6 @@
+import { categoryPaths } from '@/common/constants/paths';
 import { MoviesList } from '../MoviesList/MoviesList';
 import { WelcomeSection } from '../WelcomeSection/WelcomeSection';
-import { categoryPaths } from '../../../../common/constants/paths';
 import styles from './MainPage.module.css';
 
 export const MainPage = () => {
@@ -18,7 +18,7 @@ export const MainPage = () => {
 
       <section className={styles.section}>
         <MoviesList
-          category="topRated"
+          category="top-rated"
           title="Top Rated Movies"
           viewMoreLink={categoryPaths.topRated}
         />

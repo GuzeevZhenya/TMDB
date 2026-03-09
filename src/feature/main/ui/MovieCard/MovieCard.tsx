@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, } from 'react';
 import styles from './MovieCard.module.css';
+import { FAVORITES_KEY } from '@/common/constants/LocalStorage/favouritesKeys';
 
 interface MovieCardProps {
   id: number;
@@ -9,8 +10,13 @@ interface MovieCardProps {
   voteAverage: number;
 }
 
+
 export const MovieCard = ({ id, title, posterPath, voteAverage }: MovieCardProps) => {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(() => {
+    const favorites = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
+    return favorites.includes(id);
+  });
+
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const posterUrl = posterPath
@@ -20,8 +26,18 @@ export const MovieCard = ({ id, title, posterPath, voteAverage }: MovieCardProps
   const handleFavoriteClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
+
+    const favorites = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
+
+    let newFavorites;
+    if (isFavorite) {
+      newFavorites = favorites.filter((movieId: number) => movieId !== id);
+    } else {
+      newFavorites = [...favorites, id];
+    }
+
+    localStorage.setItem(FAVORITES_KEY, JSON.stringify(newFavorites));
     setIsFavorite(!isFavorite);
-    console.log(`${title} ${isFavorite ? 'удален из' : 'добавлен в'} избранное`);
   };
 
   const handleImageLoad = () => {

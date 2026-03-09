@@ -1,0 +1,123 @@
+/* MoviesCategory.module.css */
+.container {
+  padding: 2rem 0;
+  min-height: 400px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.categoryTitle {
+  font-size: 1.6rem;
+  color: var(--text-primary);
+  margin-bottom: 2rem;
+  text-align: left;
+  padding: 0 1rem;
+}
+
+/* Счетчик фильмов */
+.count {
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  padding: 0 1rem;
+}
+
+/* ✅ Исправленная сетка - auto-fit с minmax */
+.moviesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+  width: 100%;
+}
+
+/* Убираем ограничения для карточек */
+.moviesGrid > * {
+  width: 100%;
+  justify-self: stretch;
+}
+
+/* Стили для пустого состояния и ошибок */
+.error {
+  text-align: center;
+  padding: 3rem;
+  color: #dc3545;
+  background: rgba(220, 53, 69, 0.1);
+  border-radius: 8px;
+  margin: 2rem 1rem;
+}
+
+.placeholder {
+  text-align: center;
+  padding: 3rem;
+  background: var(--card-bg);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 1.2rem;
+  border: 2px dashed var(--border-color);
+  margin: 2rem 1rem;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+  .moviesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .moviesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1.5rem 0;
+  }
+  
+  .categoryTitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 0 0.75rem;
+  }
+  
+  .count {
+    padding: 0 0.75rem;
+    font-size: 0.9rem;
+  }
+  
+  .moviesGrid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    padding: 0 0.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .moviesGrid {
+    grid-template-columns: repeat(2, 1fr); /* На мобильных всегда 2 колонки */
+    gap: 0.75rem;
+    padding: 0 0.5rem;
+  }
+  
+  .categoryTitle {
+    font-size: 1.3rem;
+    padding: 0 0.5rem;
+  }
+  
+  .count {
+    padding: 0 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 360px) {
+  .moviesGrid {
+    grid-template-columns: 1fr; /* 1 колонка на совсем маленьких */
+  }
+}

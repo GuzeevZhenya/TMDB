@@ -11,7 +11,8 @@ export const Path = {
   FilteredMovies: '/filteredMovies',
   Search: '/search',
   Favorites: '/favorites',
+  CategoryBase: '/movies', 
   NotFound: '*',
   CategoryMoviesFilter: '/movies/:moviesCategoryFilter',
-  MovieDetails: '/movies/:id',
+  MovieDetails: '/movie/:id',
 } as const 
