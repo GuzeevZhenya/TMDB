@@ -1,0 +1,118 @@
+/* components/RatingFilter/RatingFilter.module.css */
+.filterSection {
+  margin-bottom: 1.5rem;
+}
+
+.ratingRange {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary, #666666);
+  font-size: 0.9rem;
+}
+
+.ratingSlider {
+  position: relative;
+  height: 40px;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.sliderTrack {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--border-color, #e0e0e0);
+  border-radius: 2px;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.sliderRange {
+  position: absolute;
+  top: 50%;
+  height: 4px;
+  background: var(--link-color, #01b4e4);
+  border-radius: 2px;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.rangeInput {
+  position: absolute;
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  pointer-events: none;
+  -webkit-appearance: none;
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.rangeInput::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.rangeInput::-webkit-slider-thumb {
+  pointer-events: auto;
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: var(--link-color, #01b4e4);
+  border-radius: 50%;
+  cursor: pointer;
+  margin-top: -8px;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease;
+  position: relative;
+}
+
+.rangeInput::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  background: var(--link-hover-color, #0294c4);
+}
+
+.rangeInput::-moz-range-track {
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.rangeInput::-moz-range-thumb {
+  pointer-events: auto;
+  width: 20px;
+  height: 20px;
+  background: var(--link-color, #01b4e4);
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: transform 0.1s ease;
+  position: relative;
+}
+
+.rangeInput::-moz-range-thumb:hover {
+  transform: scale(1.1);
+  background: var(--link-hover-color, #0294c4);
+}
+
+.rangeInput:first-of-type {
+  z-index: 4;
+}
+
+.rangeInput:last-of-type {
+  z-index: 3;
+}

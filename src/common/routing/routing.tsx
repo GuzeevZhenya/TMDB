@@ -7,6 +7,7 @@ import { Path } from '../constants/paths'
 import { SearchPage } from '../../feature/search/ui/SearchPage'
 import { Favourites } from '../../feature/favourites/ui/Favourites'
 import { MovieDetails } from '../../feature/details/movieDetails'
+import { FilteredMovies } from '@/feature/filteredMovies/ui/FilteredMovies'
 
 export const Routing = () => (
   <Routes>
@@ -21,5 +22,7 @@ export const Routing = () => (
     <Route path={Path.Search} element={<SearchPage />} />
     <Route path={Path.NotFound} element={<PageNotFound />} />
     <Route path={Path.Favorites} element={<Favourites />} />
+    <Route path={Path.FilteredMovies} element={<FilteredMovies />} />
+
   </Routes>
 )

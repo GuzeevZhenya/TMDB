@@ -1,0 +1,48 @@
+/* components/GenresFilter/GenresFilter.module.css */
+.filterSection {
+  margin-bottom: 1.5rem;
+}
+
+.genresList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+.genresList::-webkit-scrollbar {
+  width: 6px;
+}
+
+.genresList::-webkit-scrollbar-track {
+  background: var(--border-color, #e0e0e0);
+  border-radius: 3px;
+}
+
+.genresList::-webkit-scrollbar-thumb {
+  background: var(--link-color, #01b4e4);
+  border-radius: 3px;
+}
+
+.genreCheckbox {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--text-secondary, #666666);
+  transition: color 0.2s;
+  font-size: 0.95rem;
+}
+
+.genreCheckbox:hover {
+  color: var(--link-color, #01b4e4);
+}
+
+.genreCheckbox input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--link-color, #01b4e4);
+}

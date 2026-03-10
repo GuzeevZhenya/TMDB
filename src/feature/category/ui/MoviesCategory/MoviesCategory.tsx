@@ -17,13 +17,13 @@ export const MoviesCategory = () => {
   const { moviesCategoryFilter } = useParams();
   const config = categoryConfig[moviesCategoryFilter as keyof typeof categoryConfig];
 
-  const { currentPage, setCurrentPage, pageSize, setPageSize } = usePagination({
+  const { currentPage, setCurrentPage, pageSize, changePageSize, validatePage } = usePagination({
     initialPage: 1,
-    initialPageSize: 8
+    initialPageSize: 8,
+    resetOnPageSizeChange: true // сбрасывать на 1 при изменении pageSize
   });
 
-  console.log('Current category:', moviesCategoryFilter);
-
+  // Сброс на первую страницу при смене категории
   useEffect(() => {
     setCurrentPage(1);
   }, [moviesCategoryFilter, setCurrentPage]);
@@ -35,9 +35,13 @@ export const MoviesCategory = () => {
   const totalCount = config.data.length;
   const pagesCount = Math.ceil(totalCount / pageSize);
 
+  // Валидация страницы
+  useEffect(() => {
+    validatePage(pagesCount);
+  }, [currentPage, pagesCount, validatePage]);
+
   const startIndex = (currentPage - 1) * pageSize;
   const currentMovies = config.data.slice(startIndex, startIndex + pageSize);
-
 
   return (
     <div className={styles.container}>
@@ -65,7 +69,7 @@ export const MoviesCategory = () => {
         setCurrentPage={setCurrentPage}
         pagesCount={pagesCount}
         pageSize={pageSize}
-        changePageSize={setPageSize}
+        changePageSize={changePageSize} // используем встроенную функцию
       />
     </div>
   );

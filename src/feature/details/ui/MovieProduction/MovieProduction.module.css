@@ -1,0 +1,19 @@
+.production h3 {
+  font-size: 1.2rem;
+  margin: 0 0 0.75rem 0;
+  color: var(--text-primary);
+}
+
+.companyList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.company {
+  background: var(--company-bg);
+  color: var(--text-primary);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}

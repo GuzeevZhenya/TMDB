@@ -1,0 +1,74 @@
+/* components/FiltersSidebar/FiltersSidebar.module.css */
+.filtersSidebar {
+  flex: 0 0 320px; /* Увеличено с 280px до 320px */
+  background: var(--card-bg, #ffffff);
+  border-radius: 16px; /* Чуть больше скругление */
+  padding: 1.75rem; /* Увеличено с 1.5rem до 1.75rem */
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Более мягкая тень */
+  transition: all 0.2s ease;
+  border: 1px solid var(--border-color, #e0e0e0); /* Добавлена тонкая граница */
+}
+
+/* Эффект при наведении для дополнительной интерактивности */
+.filtersSidebar:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.filtersTitle {
+  font-size: 1.5rem;
+  margin-bottom: 1.75rem; /* Увеличено для лучшего разделения */
+  color: var(--text-primary, #333333);
+  padding-bottom: 0.75rem; /* Увеличено с 0.5rem до 0.75rem */
+  border-bottom: 2px solid var(--link-color, #01b4e4); /* Цветная линия вместо серой */
+  font-weight: 600; /* Немного жирнее */
+  letter-spacing: -0.02em; /* Чуть уже межбуквенный интервал */
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 1024px) {
+  .filtersSidebar {
+    flex: none;
+    width: 100%;
+    position: static;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .filtersSidebar {
+    padding: 1.25rem;
+  }
+  
+  .filtersTitle {
+    font-size: 1.35rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .filtersSidebar {
+    padding: 1rem;
+  }
+  
+  .filtersTitle {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
+/* Темная тема - дополнительные настройки */
+@media (prefers-color-scheme: dark) {
+  .filtersSidebar {
+    border-color: var(--border-color, #404040);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  .filtersSidebar:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+  }
+}

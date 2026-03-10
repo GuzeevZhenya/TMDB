@@ -1,0 +1,39 @@
+/* components/MoviesGrid/MoviesGrid.module.css */
+.count {
+  margin-bottom: 2rem;
+  color: var(--text-secondary, #666666);
+  font-size: 0.95rem;
+}
+
+.moviesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.noResults {
+  text-align: center;
+  padding: 4rem;
+  color: var(--text-secondary, #666666);
+  font-size: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+  .moviesGrid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .moviesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .moviesGrid {
+    grid-template-columns: 1fr;
+  }
+}

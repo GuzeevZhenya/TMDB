@@ -1,0 +1,19 @@
+/* components/BackButton/BackButton.module.css */
+.backButton {
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  margin-bottom: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.backButton:hover {
+  background: var(--hover-bg);
+}

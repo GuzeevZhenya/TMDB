@@ -1,0 +1,29 @@
+.favoriteButton {
+  background: none;
+  border: 2px solid var(--favorite-border);
+  color: var(--text-primary);
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  transition: all 0.2s;
+}
+
+.favoriteButton:hover {
+  background: var(--favorite-hover);
+  border-color: var(--favorite-hover-border);
+}
+
+.favoriteActive {
+  background: var(--favorite-active);
+  border-color: var(--favorite-active-border);
+  color: white;
+}
+
+.favoriteActive:hover {
+  background: var(--favorite-active-hover);
+}

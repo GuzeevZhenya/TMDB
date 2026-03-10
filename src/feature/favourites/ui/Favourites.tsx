@@ -4,29 +4,23 @@ import { usePagination } from '@/common/hooks/usePagination';
 import { ALL_MOVIES } from '@/common/constants/AllMovies/allMovies';
 import { MovieCard } from '@/feature/main/ui/MovieCard/MovieCard';
 import { Pagination } from '@/common/components/Pagination/Pagination';
-
-
-const FAVORITES_KEY = 'favorite_movies';
+import { FAVORITES_KEY } from '@/common/constants/LocalStorage/favouritesKeys';
 
 export const Favourites = () => {
   const [favoriteMovies, setFavoriteMovies] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  const { currentPage, setCurrentPage, pageSize, setPageSize } = usePagination({
+  const { currentPage, setCurrentPage, pageSize, changePageSize, validatePage } = usePagination({
     initialPage: 1,
-    initialPageSize: 8
+    initialPageSize: 8,
+    resetOnPageSizeChange: true
   });
 
   useEffect(() => {
     const loadFavorites = () => {
       try {
         const favoriteIds = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
-        console.log('Favorite IDs from localStorage:', favoriteIds);
-
         const favorites = ALL_MOVIES.filter(movie => favoriteIds.includes(movie.id));
-
-        console.log('Favorite movies found:', favorites);
-
         setFavoriteMovies(favorites);
         setIsLoading(false);
       } catch (error) {
@@ -41,12 +35,13 @@ export const Favourites = () => {
   const totalCount = favoriteMovies.length;
   const pagesCount = Math.ceil(totalCount / pageSize);
 
+  // Валидация страницы
+  useEffect(() => {
+    validatePage(pagesCount);
+  }, [currentPage, pagesCount, validatePage]);
+
   const startIndex = (currentPage - 1) * pageSize;
   const currentMovies = favoriteMovies.slice(startIndex, startIndex + pageSize);
-
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [pageSize, setCurrentPage]);
 
   if (isLoading) {
     return (
@@ -94,7 +89,7 @@ export const Favourites = () => {
         setCurrentPage={setCurrentPage}
         pagesCount={pagesCount}
         pageSize={pageSize}
-        changePageSize={setPageSize}
+        changePageSize={changePageSize}
       />
     </div>
   );

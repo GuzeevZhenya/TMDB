@@ -1,5 +1,5 @@
-// Pagination.tsx
-import { getPaginationPages } from '../../utils/getPagination';
+// common/components/Pagination/Pagination.tsx
+import { getPaginationPages } from '@/common/utils/getPagination';
 import s from './Pagination.module.css';
 
 type Props = {
@@ -7,7 +7,7 @@ type Props = {
   setCurrentPage: (page: number) => void;
   pagesCount: number;
   pageSize: number;
-  changePageSize: (size: number) => void;
+  changePageSize: (size: number) => void; // принимает функцию, которая уже сбрасывает страницу
 };
 
 export const Pagination = ({
@@ -45,7 +45,6 @@ export const Pagination = ({
         </div>
       )}
 
-      {/* Селектор показываем ВСЕГДА */}
       <label className={s.pageSizeLabel}>
         Show
         <select value={pageSize} onChange={e => changePageSize(Number(e.target.value))}>

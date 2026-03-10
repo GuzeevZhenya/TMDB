@@ -1,0 +1,49 @@
+.genres h3 {
+  font-size: 1.2rem;
+  margin: 0 0 0.75rem 0;
+  color: var(--text-primary);
+}
+
+.genreList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.genreButton {
+  background: var(--genre-bg);
+  color: var(--text-primary);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.genreButton:hover {
+  background: var(--genre-hover-bg, #e0e0e0);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.genreButton:active {
+  transform: translateY(0);
+}
+
+.genreButton:focus {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
+ @media (prefers-color-scheme: dark) {
+  .genreButton {
+    background: #2c3e50;
+    color: #ecf0f1;
+  }
+
+  .genreButton:hover {
+    background: #34495e;
+  }
+}

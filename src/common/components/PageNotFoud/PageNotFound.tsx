@@ -1,11 +1,9 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
-import { Path } from '../../constants/paths';
-import { mockMovies } from '../../mock/movies';
 import styles from './PageNotFound.module.css';
+import { mockMovies } from '@/common/mock/movies';
+import { Path } from '@/common/constants/paths';
 
 export const PageNotFound = () => {
-  // Берем первые 3 популярных фильма как рекомендации
   const recommendations = mockMovies.popular.slice(0, 3);
 
   return (
